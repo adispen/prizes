@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script>
+			setInterval(function(){
+				//var updated = $.getJSON("/update");
+				$.getJSON("/update", function(updated) {
+					$("#prizes").html("<h1>" + updated['prize'] + "</h1>");
+					console.log("inside update callback");
+				});
+				console.log("updating");
+			}, 3000);
+		</script>
+	</head>
+
+	<body>
+		<div id="prizes"> 
+			<h1> {{ prize }} </h1>
+		</div>
+	</body>
+</html>
